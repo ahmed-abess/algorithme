@@ -4,7 +4,7 @@ Str :STRING :='Each character will be treated separately.'
    b, a,count,i:INTEGER :=0
     
 Begin 
-FOR i FROM 0 TO str.length STEP step  DO
+FOR i FROM 0 TO str.length   DO
     a=a+1
 END_FOR
 write(a)
@@ -17,10 +17,18 @@ REPEAT
 UNTIL (str[i]='.')
 write(count)
 
-
+count:=0
 
 REPEAT
     IF (str[i]='' OR str[i]='.') THEN
+        count:=count+1 
+    END_IF
+    i=i+1
+UNTIL (str[i]='.')
+write(count)
+count:=0
+REPEAT
+    IF (str[i]='a' OR str[i]='i' OR str[i]='u'OR str[i]='o' OR str[i]='e' OR str[i]='y') THEN
         count:=count+1 
     END_IF
     i=i+1
