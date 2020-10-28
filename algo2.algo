@@ -1,0 +1,93 @@
+ALGORITHM cheakpoint Data
+VAR
+ arr1 , arr2 : ARRAY_OF INTEGER [10]
+ i,j,sum :INTEGER
+ test : BOOLEAN
+BEGIN
+    arr1 = [8,7,3,1];
+    arr2 = [5,8,3,1]; 
+    test = true
+
+    FOR i FROM 0 TO arr1.length-1 STEP 1  DO
+        FOR j FROM 0 TO arr2.length-1 STEP 1  DO
+            IF (arr1[i]===arr2[j]) THEN
+                test := false
+                break;
+        
+            END_IF 
+        END_FOR
+       IF (test) THEN
+       sum := sum+arr1[i]
+       END_IF
+    END_FOR
+  
+  FOR i FROM 0 TO arr2.length-1 STEP 1  DO
+        FOR j FROM 0 TO arr1.length-1 STEP 1  DO
+            IF (arr2[i]===arr1[j]) THEN
+                test := false
+                break;
+        
+            END_IF 
+        END_FOR
+       IF (test) THEN
+       sum := sum+arr2[i]
+       END_IF
+    END_FOR
+
+END
+
+
+
+
+
+ALGORITHM 
+VAR
+ arr1, arr2 : ARRAY_OF INTEGER [100];
+ i, count : INTEGER;
+ sum : INTEGER := 0 ;
+ kyes : ARRAY_OF INTEGER [100];
+  htab : HASH_TABLE<INTEGER,INTEGER>
+BEGIN
+ FOR i FROM 0 TO arr1.length-1 STEP 1 DO
+  IF (htab.lookup(arr1[i]) = TRUE) THEN
+   count := htab.get(arr1[i]);
+   htab.insert(arr1[i], count+1);
+   ELSE
+       htab.insert(arr1[i],1);
+   END_IF
+   END_FOR
+   FOR i FROM 0 TO arr2.length-1 STEP 1 DO
+    IF (htab.lookup(arr2[i]) = TRUE) THEN
+    count := htab.get(arr2[i]);
+    htab.insert(arr2[i], count+1);
+    ELSE
+    htab.insert(arr2[i], 1);
+    END_IF
+    END_FOR
+    keys = htab.getkeys();
+    FOR i FROM 0 TO keys.length-1 DO
+     IF (htab.get(keys[i]) =1 ) THEN
+     sum = sum +keys[i]
+END_IF
+END_FOR
+Write (sum);
+END
+
+
+Exercie 2 
+ALGORITHM
+VAR
+ arr1 , arr2 : ARRAY_OF INTEGER [10]
+ i,j,sum :INTEGER
+BEGIN
+    arr1 = [8,7,3,1];
+    arr2 = [5,8,3,1];
+    sum = 0
+ FOR i FROM 0 TO arr1.length-1 STEP 1  DO
+  FOR j FROM 0 TO arr2.length-1 STEP 1  DO
+    IF (arr1[i]===arr2[j]) THEN
+    sum = sum + arr1[i];
+    END_IF
+  END_FOR
+ END_FOR
+END
